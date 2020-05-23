@@ -1,11 +1,11 @@
 <footer id="footer"><!--Footer-->
-    <!--<div class="footer-top">
+    <div class="footer-top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
                     <div class="companyinfo">
-                        <h2><span>Hyper</span>-Mart</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+                        <h2><span>Laptop Shop</span></h2>
+                        <p>The Laptop Shop chuyên cung cấp các sản phẩm công nghệ hiện đại, máy tính sành điệu, phù hợp với mọi tính chất công việc</p>
                     </div>
                 </div>
                 <div class="col-sm-7">
@@ -72,83 +72,78 @@
                 <div class="col-sm-3">
                     <div class="address">
                         <img src="{{asset('images/frontend_img/home/map.png')}}" alt="" />
-                        <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+                        <p>Chuyên kinh doanh các dòng laptop được tin dùng nhiều nhất trên thế giới</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>-->
+    </div>
     
-    <!--<div class="footer-widget">
+    <div class="footer-widget">
         <div class="container">
             <div class="row">
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <h2>Service</h2>
+                        <h2>Dịch vụ</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Online Help</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Order Status</a></li>
-                            <li><a href="#">Change Location</a></li>
+                            <li><a href="#">Tư vấn online</a></li>
+                            <li><a href="#">Hỗ trợ kỹ thuật</a></li>
+                            <li><a href="#">Tình trạng đơn hàng</a></li>
                             <li><a href="#">FAQ’s</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <h2>Quock Shop</h2>
+                        <h2>Sản phẩm</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">T-Shirt</a></li>
-                            <li><a href="#">Mens</a></li>
-                            <li><a href="#">Womens</a></li>
-                            <li><a href="#">Gift Cards</a></li>
-                            <li><a href="#">Shoes</a></li>
+                            <li><a href="#">Laptop</a></li>
+                            <li><a href="#">Macbook</a></li>
+                            <li><a href="#">PC-Máy tính bộ</a></li>
+                            <li><a href="#">Phụ kiện-Linh kiện</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <h2>Policies</h2>
+                        <h2>Chính sách</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Terms of Use</a></li>
-                            <li><a href="#">Privecy Policy</a></li>
-                            <li><a href="#">Refund Policy</a></li>
-                            <li><a href="#">Billing System</a></li>
-                            <li><a href="#">Ticket System</a></li>
+                            <li><a href="#">Điều khoản sử dụng</a></li>
+                            <li><a href="#">Chính sách cá nhân</a></li>
+                            <li><a href="#">Hệ thống thanh toán</a></li>
+                            <li><a href="#">Chính sách hoàn tiền</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <h2>About Shopper</h2>
+                        <h2>Giới thiệu cửa hàng</h2>
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Company Information</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Store Location</a></li>
-                            <li><a href="#">Affillate Program</a></li>
-                            <li><a href="#">Copyright</a></li>
+                            <li><a href="#">Quá trình phát triển</a></li>
+                            <li><a href="#">Nhân sự cửa hàng</a></li>
+                            <li><a href="#">Sản phẩm kinh doanh</a></li>
+                            <li><a href="#">Chi nhánh cửa hàng</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-3 col-sm-offset-1">
                     <div class="single-widget">
-                        <h2>About Shopper</h2>
+                        <h2>Nhận tin tức mới nhất</h2>
                         <form action="#" class="searchform">
-                            <input type="text" placeholder="Your email address" />
+                            <input type="text" placeholder="Nhập địa chỉ mail của bạn" />
                             <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                            <p>Get the most recent updates from <br />our site and be updated your self...</p>
                         </form>
                     </div>
                 </div>
                 
             </div>
         </div>
-    </div>-->
+    </div>
     
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p align="center">Copyright © 2018 Hyper-Mart Inc. All rights reserved.</p>
+                <p align="center">Copyright © 2020 Laptop Shop. Nguyễn Tường Vy.16DTH</p>
             
             </div>
         </div>

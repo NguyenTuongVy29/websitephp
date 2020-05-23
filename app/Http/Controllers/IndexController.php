@@ -47,7 +47,7 @@ class IndexController extends Controller
                 </div>
                 ";
         }*/
-        return view('index')->with(compact('productsAll','categories_menu','categories','s'));
+        return view('index')->with(compact('productsAll','categories','categories','s'));
     }
     public function contactUs(){
         return view('products.contact');

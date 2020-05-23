@@ -10,8 +10,8 @@ $mainCategories = Controller::mainCategories();
 <div class="col-sm-6">
 <div class="contactinfo">
     <ul class="nav nav-pills">
-        <li><a href="#"><i class="fa fa-phone"></i> +92303-0961254</a></li>
-        <li><a href="#"><i class="fa fa-envelope"></i> amaanchaudhary17@gmail.com</a></li>
+        <li><a href="#"><i class="fa fa-phone"></i> (+84)3030-961-254</a></li>
+        <li><a href="#"><i class="fa fa-envelope"></i> vynguyenmy81@gmail.com</a></li>
     </ul>
 </div>
 </div>
@@ -43,13 +43,13 @@ $mainCategories = Controller::mainCategories();
             <div class="col-sm-8">
                 <div class="shop-menu pull-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{url('/orders')}}"><i class="fa fa-crosshairs"></i> Order</a></li>
-                        <li><a href="{{url('/login-register')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                        <!-- <li><a href="{{url('/orders')}}"><i class="fa fa-crosshairs"></i> Đơn hàng của tôi</a></li> -->
+                        <li><a href="{{url('/login-register')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                         @if(empty(Auth::check()))
-                            <li><a href="{{url('/login-register')}}"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="{{url('/login-register')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                         @else
-                            <li><a href="{{url('/account')}}"><i class="fa fa-user"></i> Account</a></li>
-                            <li><a href="{{url('/user-logout')}}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                            <li><a href="{{url('/account')}}"><i class="fa fa-user"></i> Tài khoản</a></li>
+                            <li><a href="{{url('/user-logout')}}"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
                         @endif
                     </ul>
                 </div>
@@ -72,26 +72,26 @@ $mainCategories = Controller::mainCategories();
 </div>
 <div class="mainmenu pull-left">
     <ul class="nav navbar-nav collapse navbar-collapse">
-    <li><a href="{{url('/')}}" class="active">Home</a></li>
-        <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+    <li><a href="{{url('/')}}" class="active">Trang chủ</a></li>
+        <li class="dropdown"><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
             <ul role="menu" class="sub-menu">
                 @foreach($mainCategories as $cat)
             <li><a href="{{url('products/'.$cat->url)}}">{{$cat->Name}}</a></li>
                  @endforeach
             </ul>
         </li>  
-        <li><a href="404.html">About Us</a></li>
-    <li><a href="{{url('/contact-us')}}">Contact</a></li>
+        <li><a href="404.html">Về chúng tôi</a></li>
+    <li><a href="{{url('/contact-us')}}">Liên hệ</a></li>
     </ul>
 </div>
 </div>
 <div class="col-sm-4">
 <form action="{{ url('/')}}" method="get" class="form-inline">
     <div class="form-group">
-    <input type="text" class="form-control" style="width:100%;" name="s" placeholder="Keyword" value="{{isset($s) ? $s : ''}}">
+    <input type="text" class="form-control" style="width:100%;" name="s" placeholder="Nhập từ khóa tìm kiếm" value="{{isset($s) ? $s : ''}}">
     </div>
      <div class="form-group">
-          <button class="btn btn-success" type="submit">Search</button>
+          <button class="btn btn-success" type="submit">Tìm kiếm</button>
      </div>
 </form>
 </div>

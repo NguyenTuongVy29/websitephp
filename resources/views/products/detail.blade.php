@@ -67,17 +67,17 @@
         </p>
         <img src="images/product-details/rating.png" alt="" />
         <span>
-        <span id="getPrice">PKR {{ $productDetails->price }}</span>
-            <label>Quantity:</label>
+        <span id="getPrice"> {{ $productDetails->price }} Đ</span>
+            <label>Số lượng:</label>
             <input type="text" name="quantity" value="1" />
             @if($total_stock>0)
             <button type="submit" class="btn btn-fefault cart" id="cartButton">
                 <i class="fa fa-shopping-cart"></i>
-                Add to cart
+                Thêm vào giỏ
             </button>
             @endif
         </span>
-        <p><b>Availability:</b><span id="Availability">@if($total_stock>0) In Stock @else Out of Stock @endif</p></span>
+        <p><b>Tình trạng:</b><span id="Availability">@if($total_stock>0) In Stock @else Out of Stock @endif</p></span>
         <p><b>Condition:</b> New</p>
         <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
     </div><!--/product-information-->

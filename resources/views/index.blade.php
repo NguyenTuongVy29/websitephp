@@ -67,16 +67,17 @@
 
 <div class="col-sm-9 padding-right">
     <div class="features_items"><!--features_items-->
-        <h2 class="title text-center">All Display Products</h2>
+        <h2 class="title text-center">Tất cả sản phẩm   </h2>
         @foreach($productsAll as $product)
         <div class="col-sm-4">
             <div class="product-image-wrapper">
                 <div class="single-products">
                         <div class="productinfo text-center">
                             <img src="{{asset('images/backend_img/products/small/'.$product->image)}}" alt="" />
-                        <h2>PKR {{$product->price}}</h2>
-                        <p>{{$product->product_name}}</p>
-                        <a href="{{url('product/'.$product->id)}}" class="btn btn-default add-to-cart">Detail Page</a>
+                        <h2>{{$product->price}} Đ</h2>
+                        
+                        <a href="{{url('product/'.$product->id)}}"><p>{{$product->product_name}}</p></a>
+                        <a href="{{url('product/'.$product->id)}}" class="btn btn-default add-to-cart">Mua ngay</a>
                         </div>
                         <!--<div class="product-overlay">
                             <div class="overlay-content">
