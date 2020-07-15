@@ -4,8 +4,8 @@
 <div id="content">
 <div id="content-header">
     <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-    <a href="#">Product Image</a> <a href="#" class="current">Add Products Images</a> </div>
-    <h1>Product Images</h1>
+    <a href="#">Ảnh sản phẩm</a> <a href="#" class="current">Thêm ảnh sản phẩm</a> </div>
+    <h1>Ảnh sản phẩm</h1>
     @if(Session::has('flash_message_error'))
     <div class="alert alert-error alert-block">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -28,18 +28,18 @@
     <div class="span12">
         <div class="widget-box">
         <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
-            <h5>Add Products Images</h5>
+            <h5>Thêm ảnh sản phẩm</h5>
         </div>
         <div class="widget-content nopadding">
             <form enctype="multipart/form-data" class="form-horizontal" method="post" action="{{ url('/admin/add-images/'.$productDetails->id) }}"
             name="add_product" id="add_product" > {{csrf_field()}}
             <input type="hidden" name="product_id" value="{{$productDetails->id}}">
                 <div class="control-group">
-                <label class="control-label">Product Name</label>
+                <label class="control-label">Tên sản phẩm</label>
                 <label class="control-label"><strong>{{$productDetails->product_name}}</strong></label>
                 </div>
                 <div class="control-group">
-                <label class="control-label">Product Code</label>
+                <label class="control-label">Mã sản phẩm</label>
                 <label class="control-label"><strong>{{$productDetails->product_code}}</strong></label>
                     </div>
                 <div class="control-group">
@@ -50,7 +50,7 @@
                 </div>
                     
                 <div class="form-actions">
-                    <input type="submit" value="Add Images" class="btn btn-success">
+                    <input type="submit" value="Thêm ảnh" class="btn btn-success">
 
                 </div>
                 </form>
@@ -62,27 +62,27 @@
     <div class="span12">
     <div class="widget-box">
     <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-    <h5>View Images</h5>
+    <h5>Danh mục ảnh sản phẩm</h5>
     </div>
     <div class="widget-content nopadding">
     <table class="table table-bordered data-table">
         <thead>
         <tr>
-            <th>Image ID</th>
-            <th>Product ID</th>
-            <th>Image</th>
-            <th>Actions</th>
+            <th>STT</th>
+            <th>Mã sản phẩm</th>
+            <th>Ảnh</th>
+            <th>Thao tác</th>
         </tr>
         </thead>
         <tbody>
         @foreach($productImages as $image)
         <tr>
         <td>{{$image->id}}</td>
-        <td>{{$image->product_id}}</td>
+        <td>{{$image->product_code}}</td>
         <td><img src="{{url('images/backend_img/products/small/'.$image->image)}}" style="width:80px;"></td>
         <td>
             <a  rel="{{$image->id}}" rel1="delete-alt-image"
-            href="javascript:" class="btn btn-danger btn-mini deleteRecord">Delete</a>
+            href="javascript:" class="btn btn-danger btn-mini deleteRecord">Xóa</a>
         </td>
         </tr>
         @endforeach

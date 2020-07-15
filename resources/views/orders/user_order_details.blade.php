@@ -5,8 +5,7 @@
 <div class="container">
 <div class="breadcrumbs">
 <ol class="breadcrumb">
-<li><a href="#">Home</a></li>
-<li><a href="{{url('orders')}}">View Order</a></li>
+<li><a href="{{url('orders')}}">Đơn hàng của bạn</a></li>
 <li class="active">{{$orderDetails->id}}</li>
 </ol>
 </div>
@@ -20,12 +19,10 @@
     <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Product Code</th>
-                <th>Product Name</th>
-                <th>Product Size</th>
-                <th>Product Color</th>
-                <th>Product Price</th>
-                <th>Product Qty</th>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá sản phẩm</th>
+                <th>Số lượng</th>
             </tr>
         </thead>
         <tbody>
@@ -33,9 +30,7 @@
             <tr>
             <td>{{$pro->product_code}}</td>
                 <td>{{$pro->product_name}}</td>
-                <td>{{$pro->product_size}}</td>
-                <td>{{$pro->product_color}}</td>
-                <td>{{$pro->product_price}}</td>
+                <td>{{$pro->product_new_price}}</td>
                 <td>{{$pro->product_qty}}</td>
             </tr>
             @endforeach

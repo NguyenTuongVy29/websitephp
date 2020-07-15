@@ -3,9 +3,9 @@
 
 <div id="content">
     <div id="content-header">
-        <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-        <a href="#">Categories</a> <a href="#" class="current">View Categories</a> </div>
-        <h1>Categories</h1>
+        <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Dashboard</a>
+        <a href="#">Danh mục</a> <a href="#" class="current">Danh sách danh mục</a> </div>
+        <h1>Danh mục</h1>
         @if(Session::has('flash_message_error'))
         <div class="alert alert-error alert-block">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -29,17 +29,17 @@
         <div class="span12">
           <div class="widget-box">
             <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-              <h5>View Categories</h5>
+              <h5>Danh sách danh mục</h5>
             </div>
             <div class="widget-content nopadding">
               <table class="table table-bordered data-table">
                 <thead>
                   <tr>
-                    <th>Category ID</th>
-                    <th>Category Name</th>
-                    <th>Category Level</th>
-                    <th>Category URL</th>
-                    <th>Actions</th>
+                    <th>STT</th>
+                    <th>Tên danh mục</th>
+                    <th>Bậc danh mục</th>
+                    <th>URL danh mục</th>
+                    <th>Thực hiện</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -49,9 +49,9 @@
                     <td>{{ $category->Name }}</td>
                     <td>{{ $category->Parent_id }}</td>
                     <td>{{ $category->url }}</td>
-                  <td class="center"><div class="fr"><a href="{{url('/admin/edit-category/'.$category->id)}}" class="btn btn-primary btn-mini">Edit</a>
+                  <td class="center"><div class="fr"><a href="{{url('/admin/edit-category/'.$category->id)}}" class="btn btn-primary btn-mini">Sửa</a>
                     <a  rel="{{$category->id}}" rel1="delete-category"
-                        href="javascript:" class="btn btn-danger btn-mini deleteRecord">Delete</a></div></td>              
+                        href="javascript:" class="btn btn-danger btn-mini deleteRecord">Xóa</a></div></td>              
                 </tr>
                 @endforeach
                 </tbody>

@@ -5,8 +5,7 @@
 <div class="container">
 <div class="breadcrumbs">
 <ol class="breadcrumb">
-<li><a href="#">Home</a></li>
-<li class="active">View Order</li>
+<li class="active">Đơn hàng của bạn</li>
 </ol>
 </div>
 </div>
@@ -19,11 +18,12 @@
     <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Order ID</th>
-                <th>Ordered Products</th>
-                <th>Payment Method</th>
-                <th>Grand Total</th>
-                <th>Created On</th>
+                <th>Mã đơn hàng</th>
+                <th>Mã sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Phương thức thanh toán</th>
+                <th>Tổng thanh toán</th>
+                <th>Ngày lập</th>
             </tr>
         </thead>
         <tbody>

@@ -17,6 +17,9 @@
     <link href="{{asset('css/frontend_css/responsive.css')}}" rel="stylesheet">
     <link href="{{asset('css/frontend_css/easyzoom.css')}}" rel="stylesheet">
     <link href="{{asset('css/frontend_css/passtrength.css')}}" rel="stylesheet">
+
+    <!-- custom css -->
+    <link href="{{asset('css/frontend_css/custom.css')}}" rel="stylesheet">
     <script src="{{asset('js/frontend_js/jquery.js')}}"></script>
     <script src="https://js.stripe.com/v3/"></script>
     <!--[if lt IE 9]>
@@ -28,6 +31,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset('images/frontend_img/ico/apple-touch-icon-114-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset('images/frontend_img/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/frontend_img/ico/apple-touch-icon-57-precomposed.png')}}">
+    
 </head><!--/head-->
 
 <body>

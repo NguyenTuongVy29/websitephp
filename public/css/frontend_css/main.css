@@ -1638,8 +1638,10 @@ h2.title {
   overflow: hidden;
   text-align: center;
   width: 35px;
-  float: left;
+  float: right;
 }
+
+
 
 
 .cart_quantity_input {

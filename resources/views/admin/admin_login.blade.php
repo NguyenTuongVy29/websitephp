@@ -33,38 +33,38 @@
 <form id="loginform" class="form-vertical" method="POST" action="{{url('admin')}}">{{csrf_field()}}
             <div class="control-group normal_text"> 
         <h3><img src="{{asset('images/backend_img/admin.png')}}" alt="Logo" style="width:150px;" /></h3></div>
-        <h3 align="Center" style="color:white;">Admin Login</h3>
+        <h3 align="Center" style="color:white;">Đăng nhập Admin</h3>
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
-                    <span class="add-on bg_lg"><i class="icon icon-user"></i></span><input type="email" name="email" placeholder="Username" />
+                    <span class="add-on bg_lg"><i class="icon icon-user"></i></span><input type="email" name="email" placeholder="Tên đăng nhập" />
                 </div>
             </div>
         </div>
         <div class="control-group">
             <div class="controls">
                 <div class="main_input_box">
-                    <span class="add-on bg_ly"><i class="icon icon-lock"></i></span><input type="password" name="password" placeholder="Password" />
+                    <span class="add-on bg_ly"><i class="icon icon-lock"></i></span><input type="password" name="password" placeholder="Mật khẩu" />
                 </div>
             </div>
         </div>
         <div class="form-actions">
-            <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Lost password?</a></span>
-            <span class="pull-right"><input type="submit" value="Login" class="btn btn-success" /></span>
+            <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Quên mật khẩu</a></span>
+            <span class="pull-right"><input type="submit" value="Đăng nhập" class="btn btn-success" /></span>
         </div>
     </form>
     <form id="recoverform" action="#" class="form-vertical">
-        <p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
+        <p class="normal_text">Nhập địa chỉ email của bạn</p>
         
             <div class="controls">
                 <div class="main_input_box">
-                    <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" />
+                    <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="Email" />
                 </div>
             </div>
         
         <div class="form-actions">
-            <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
-            <span class="pull-right"><a class="btn btn-info"/>Reecover</a></span>
+            <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Trở về</a></span>
+            <span class="pull-right"><a class="btn btn-info">Gửi</a></span>
         </div>
     </form>
 </div>

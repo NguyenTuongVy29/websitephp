@@ -5,14 +5,13 @@
     <div class="container">
     <div class="breadcrumbs">
         <ol class="breadcrumb">
-        <li><a href="#">Trang chủ</a></li>
-        <li class="active">Order Review</li>
+        <li class="active">Đơn hàng</li>
         </ol>
     </div>
         <div class="row">
             <div class="col-sm-4 col-sm-offset-1">
                 <div class="login-form">
-                    <h2>Bill Address</h2>
+                    <h2>Địa chỉ đơn hàng</h2>
                 <div class="form-group">
                 {{$userDetails->name}}
                 </div>
@@ -41,7 +40,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="signup-form">
-                    <h2>Shipping Details</h2>
+                    <h2>Địa chỉ giao hàng</h2>
                 <div class="form-group">
                 {{$shippingDetails->name}}
                 </div>
@@ -78,18 +77,18 @@
 </div>
 
 <div class="review-payment">
-    <h2>Review & Payment</h2>
+    <h2>Thanh toán</h2>
 </div>
 
 <div class="table-responsive cart_info">
     <table class="table table-condensed">
         <thead>
             <tr class="cart_menu">
-                <td class="image">Item</td>
-                <td class="description"></td>
-                <td class="price">Price</td>
-                <td class="quantity">Quantity</td>
-                <td class="total">Total</td>
+                <td class="image">Mặt hàng</td>
+                <td class="description">Mã sản phẩm</td>
+                <td class="new_price">Giá (VNĐ)</td>
+                <td class="quantity">Số lượng</td>
+                <td class="total">Tổng cộng (VNĐ)</td>
             </tr>
         </thead>
         <tbody>
@@ -100,11 +99,10 @@
                     <a href=""><img style="width:80px;" src="{{asset('images/backend_img/products/small/'.$cart->image)}}" alt=""></a>
                 </td>
                 <td class="cart_description">
-                <h4><a href="">{{$cart->product_name}}</a></h4>
-                <p>Product Code: {{$cart->product_code}} | Size: {{$cart->size}}</p>
+                <p> {{$cart->product_code}}</p>
                 </td>
-                <td class="cart_price">
-                <p>PKR {{$cart->price}}</p>
+                <td class="cart_prices">
+                <p>{{number_format($cart->new_price, 0)}}</p>
                 </td>
                 <td class="cart_quantity">
                     <div class="cart_quantity_button">
@@ -112,36 +110,36 @@
                     </div>
                 </td>
                 <td class="cart_total">
-                <p class="cart_total_price">PKR {{$cart->price*$cart->quantity}}</p>
+                <p class="cart_total_price">{{number_format($cart->new_price*$cart->quantity, 0)}}</p>
                 </td>
             </tr>
-            <?php $total_amount = $total_amount + ($cart->price*$cart->quantity);?>
+            <?php $total_amount = $total_amount + $cart->new_price*$cart->quantity;?>
             @endforeach
             <tr>
                 <td colspan="4">&nbsp;</td>
                 <td colspan="2">
                     <table class="table table-condensed total-result">
                         <tr>
-                            <td>Cart Sub Total</td>
-                            <td>PKR {{$total_amount}}</td>
+                            <td>Thành tiền: </td>
+                            <td>{{number_format($total_amount,0)}} VNĐ</td>
                         </tr>
                         <tr class="shipping-cost">
-                            <td>Shipping Cost (+)</td>
-                            <td>PKR 0</td>										
+                            <td>Phí vận chuyển (+): </td>
+                            <td>0 VNĐ</td>										
                         </tr>
                         <tr class="shipping-cost">
-                                <td>Discount Amount (-)</td>
+                                <td>Giảm giá khuyến mãi (-): </td>
                         <td>
                         @if(!empty(Session::get('CouponAmount')))
-                           PKR {{Session::get('CouponAmount')}}
+                           {{ number_format(Session::get('CouponAmount'),0)}} VNĐ
                         @else
-                            PKR 0
+                            0 VNĐ
                         @endif
                         </td>										
                         </tr>
                         <tr>
-                            <td>Grand Total</td>
-                        <td><span>PKR {{$grand_total=$total_amount - Session::get('CouponAmount')}}</span></td>
+                            <td>Tổng thanh toán: </td>
+                        <td><span>{{number_format($grand_total=$total_amount - Session::get('CouponAmount'),0)}} VNĐ</span></td>
                         </tr>
                     </table>
                 </td>
@@ -151,19 +149,20 @@
 </div>
 
 <form name="paymentForm" id="paymentForm" action="{{url('/place-order')}}" method="post"> {{csrf_field()}}
-<input type="hidden" name="grand_total" value="{{$grand_total}}">
+<input type="hidden" name="grand_total" value="{{number_format($grand_total,0)}}">
     <div class="payment-options">
         <span>
-            <label><strong>Select Payment Method: </strong></label>
+            <label><strong>Phương thức thanh toán </strong></label>
         </span>
         <span>
-            <label><input type="radio" name="payment_method" id="COD" value="COD"><strong> Cash on Delivery (COD) </strong></label>
+            <label><input type="radio" name="payment_method" id="COD" value="Thanh toán khi nhận hàng (COD)"><strong> Thanh toán khi nhận hàng (COD) </strong></label>
         </span>
         <span>
-            <label><input type="radio" name="payment_method" id="paypal" value="paypal"><strong> Paypal</strong></label>
+            <label><input type="radio" name="payment_method" id="paypal" value="Thanh toán trực tuyến"><strong> Thanh toán trực tuyến</strong></label>
         </span>
         <span style="float:right;">
-        <button type="submit" class="btn btn-mini check_out" onclick="return selectPaymentMethod();">Place Order</button>
+        <button type="submit" class="btn btn-mini check_out" onclick="return selectPaymentMethod();">Thanh toán</button>
+        
         </span>
     </div>
 </form>

@@ -43,7 +43,7 @@ $(document).ready(function(){
 			success:function(resp){
 				//alert(resp); 
 			var arr = resp.split('#');
-				$("#getPrice").html("PKR "+arr[0]);
+				$("#getPrice").html("VNĐ "+arr[0]);
 				$('#price').val(arr[0]);
 				if(arr[1]==0){
 					$("#cartButton").hide();

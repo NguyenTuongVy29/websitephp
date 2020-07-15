@@ -29,6 +29,8 @@
 
 @include('layouts.adminLayout.admin_footer');
 
+
+
 <script src="{{asset('js/backend_js/jquery.min.js')}}"></script>  
 <script src="{{asset('js/backend_js/bootstrap.min.js')}}"></script> 
 <script src="{{asset('js/backend_js/jquery.dataTables.min.js')}}"></script>

@@ -33,20 +33,35 @@ class ProductsController extends Controller
             $product->category_id .= $data['category_id'];
             $product->product_name= $data['product_name'];
             $product->product_code = $data['product_code'];
-            $product->product_color = $data['product_color'];
-            
             if(!empty($data['description'])){
             $product->description = $data['description'];
             }else{
             $product->description = '';
             }
-            if(!empty($data['care'])){
-                $product->care = $data['care'];
-                }else{
-                $product->care = '';
-                }
-
-            $product->price = $data['price'];
+            $product->old_price = $data['old_price'];
+            $product->new_price = $data['new_price'];
+            $product->thuong_hieu = $data['thuong_hieu'];
+            $product->bao_hanh = $data['bao_hanh'];
+            $product->mau_sac = $data['mau_sac'];
+            $product->series_laptop = $data['series_laptop'];
+            $product->man_hinh = $data['man_hinh'];
+            $product->CPU = $data['CPU'];
+            $product->thehe_CPU = $data['thehe_CPU'];
+            $product->RAM = $data['RAM'];
+            $product->chip_do_hoa = $data['chip_do_hoa'];
+            $product->luu_tru = $data['luu_tru'];
+            $product->cong_xuat_trinh = $data['cong_xuat_trinh'];
+            $product->thuong_hieu = $data['thuong_hieu'];
+            $product->cong_ket_noi = $data['cong_ket_noi'];
+            $product->ket_noi_khong_day = $data['ket_noi_khong_day'];
+            $product->ban_phim = $data['ban_phim'];
+            $product->he_dieu_hanh = $data['he_dieu_hanh'];
+            $product->kich_thuoc = $data['kich_thuoc'];
+            $product->pin = $data['pin'];
+            $product->khoi_luong = $data['khoi_luong'];
+            $product->bao_mat = $data['bao_mat'];
+            $product->den_LED = $data['den_LED'];
+            $product->o_dia = $data['o_dia'];
             //upload image code
             if($request->hasfile('image')){
                 echo $image_tmp = Input::file('image');
@@ -66,7 +81,7 @@ class ProductsController extends Controller
                 }
             }
             $product->save();
-            return redirect('/admin/view-products')->with('flash_message_success','Product has been Added Successfully!!!'); 
+            return redirect('/admin/view-products')->with('flash_message_success','Thêm mới sản phẩm thành công!'); 
         }
 
         //this code genrate categories in drop box menu in add products page
@@ -124,15 +139,40 @@ class ProductsController extends Controller
             if(empty($data['description'])){
                 $data['description'] = '';
             }
-            if(empty($data['care'])){
-                $data['care'] = '';
-            }
+            
 
-            Product::where(['id'=>$id])->update(['category_id'=>$data['category_id'],
-            'product_name'=>$data['product_name'],'product_code'=>$data['product_code'],
-            'product_color'=>$data['product_color'],'description'=>$data['description'],
-            'care'=>$data['care'],'price'=>$data['price'],'image'=>$filename]);
-            return redirect()->back()->with('flash_message_success','Product has been Updated Successfully!!!');
+            Product::where(['id'=>$id])->update(
+                ['category_id'=>$data['category_id'],
+                'product_name'=>$data['product_name'],
+                'product_code'=>$data['product_code'],
+                'description'=>$data['description'], 
+                'old_price'=>$data['old_price'],
+                'new_price'=>$data['new_price'],
+                'thuong_hieu'=>$data['thuong_hieu'],
+                'bao_hanh'=>$data['bao_hanh'],
+                'mau_sac'=>$data['mau_sac'], 
+                'series_laptop'=>$data['series_laptop'],
+                'man_hinh'=>$data['man_hinh'],
+                'CPU'=>$data['CPU'],
+                'thehe_CPU'=>$data['thehe_CPU'],
+                'RAM'=>$data['RAM'], 
+                'chip_do_hoa'=>$data['chip_do_hoa'],
+                'luu_tru'=>$data['luu_tru'],
+                'cong_xuat_trinh'=>$data['cong_xuat_trinh'],
+                'cong_ket_noi'=>$data['cong_ket_noi'], 
+                'ket_noi_khong_day'=>$data['ket_noi_khong_day'],
+                'ban_phim'=>$data['ban_phim'],
+                'he_dieu_hanh'=>$data['he_dieu_hanh'],
+                'kich_thuoc'=>$data['kich_thuoc'],
+                'pin'=>$data['pin'], 
+                'khoi_luong'=>$data['khoi_luong'],
+                'bao_mat'=>$data['bao_mat'],
+                'den_LED'=>$data['den_LED'],
+                'o_dia'=>$data['o_dia'],
+                'image'=>$filename],
+            );
+
+            return redirect()->back()->with('flash_message_success','Cập nhật sản phẩm thành công!');
         }
         $productDetails = Product::where(['id'=>$id])->first();
         //categories drop down starts
@@ -146,8 +186,10 @@ class ProductsController extends Controller
                 $selected = "";
             }
             $categories_dropdown .= "<option value='".$cat->id."' ".$selected.">".$cat->Name."</option>";
+       
         //code for showing subcategories in main category
-        $sub_categories = Category::where(['Parent_id'=>$cat->id])->get();
+    
+            $sub_categories = Category::where(['Parent_id'=>$cat->id])->get();
         foreach($sub_categories as $sub_cat){
             if($sub_cat->id==$productDetails->category_id){
                 $selected = "selected";
@@ -157,6 +199,7 @@ class ProductsController extends Controller
         $categories_dropdown .= "<option value = '".$sub_cat->id."' ".$selected.">&nbsp;--&nbsp;".$sub_cat->Name."</option>";
         }
     } 
+   
     //categories drop down end
         return view('admin.products.edit_product')->with(compact('productDetails','categories_dropdown')); 
 
@@ -164,7 +207,7 @@ class ProductsController extends Controller
     //function for delete product
     public function deleteProduct($id=null){
         Product::where(['id'=>$id])->delete();
-        return redirect()->back()->with('flash_message_error','Product has been deleted Successfully!!!');
+        return redirect()->back()->with('flash_message_error','Xóa sản phẩm thành công!');
 
     }
     //function for delete product image
@@ -190,7 +233,7 @@ class ProductsController extends Controller
         }
         //Delete Product Image in folder
         Product::where(['id'=>$id])->update(['image'=>'']);
-        return redirect()->back()->with('flash_message_success','Product Image has been deleted!');
+        return redirect()->back()->with('flash_message_success','Xóa ảnh sản phẩm thành công!');
 
     }
     public function deleteAltImage($id=null){
@@ -215,7 +258,7 @@ class ProductsController extends Controller
         }
         //Delete Product Image in folder
         ProductsImage::where(['id'=>$id])->delete();
-        return redirect()->back()->with('flash_message_error','Product Alternate Image has been deleted!');
+        return redirect()->back()->with('flash_message_error','Xóa ảnh sản phẩm thành công!');
 
     }
     //function for add-products attributes
@@ -230,24 +273,17 @@ class ProductsController extends Controller
                     //Prevent duplicate SKU check
                     $attrCountSKU = ProductsAttribute::where('sku',$val)->count();
                     if($attrCountSKU>0){
-                    return redirect('/admin/add-attributes/'.$id)->with('flash_message_error','SKU is already exist please add another SKU!');   
+                    return redirect('/admin/add-attributes/'.$id)->with('flash_message_error','Mã sản phẩm không tồn tại!');   
                     }
-                    //Prevent duplicate Size check
-                    $attrCountSizes =ProductsAttribute::where(['product_id'=>$id,'size'=>$data['size'][$key]])->count();
-                    if($attrCountSizes>0){
-                    return redirect('/admin/add-attributes/'.$id)->with('flash_message_error',''.$data['size'][$key].' Size is already exist for this product please add another Size!');   
-                    } 
-
                     $attribute = new ProductsAttribute;
                     $attribute->product_id = $id;
                     $attribute->sku = $val;
-                    $attribute->size = $data['size'][$key];
-                    $attribute->price =$data['price'][$key];
+                    $attribute->new_price =$data['new_price'][$key];
                     $attribute->stock =$data['stock'][$key];
                     $attribute->save();
                 }
             }
-            return redirect('/admin/add-attributes/'.$id)->with('flash_message_success','Products Attributes Added Successfully!');
+            return redirect('/admin/add-attributes/'.$id)->with('flash_message_success','Thêm thuộc tính sản phẩm thành công!');
         }
         return view('admin.products.add_attributes')->with(compact('productDetails'));
 
@@ -258,10 +294,10 @@ class ProductsController extends Controller
            $data = $request->all();
            //echo "<pre>";print_r($data);die;
            foreach($data['idAttr'] as $key=>$attr){
-               ProductsAttribute::where(['id'=>$data['idAttr'][$key]])->update(['price'=>$data['price'][$key],
+               ProductsAttribute::where(['id'=>$data['idAttr'][$key]])->update(['new_price'=>$data['new_price'][$key],
                'stock'=>$data['stock'][$key]]);
            }
-           return redirect()->back()->with('flash_message_success','Products Attributes Updated!!!');
+           return redirect()->back()->with('flash_message_success','Cập nhật thuộc tính sản phẩm thành công!');
        }
 
     }
@@ -290,7 +326,7 @@ class ProductsController extends Controller
             $image->save();
             }
           } 
-          return redirect('admin/add-images/'.$id)->with('flash_message_success','Product Images has been Updated Successfully!!!');
+          return redirect('admin/add-images/'.$id)->with('flash_message_success','Cập nhật ảnh sản phẩm thành công!');
         }
         //this code is to display images in our add-images.blade file from db
         $productImages = ProductsImage::where(['product_id'=>$id])->get();
@@ -300,7 +336,7 @@ class ProductsController extends Controller
     }
     public function deleteAttribute($id=null){
         ProductsAttribute::where(['id'=>$id])->delete();
-        return redirect()->back()->with('flash_message_error','Attribute has been deleted successfully!');
+        return redirect()->back()->with('flash_message_error','Xóa thuộc tính thành công!');
     
     }
     public function products($url = null){
@@ -357,19 +393,19 @@ class ProductsController extends Controller
     }
     public function getProductPrize(Request $request){
         $data = $request->all();
-        //echo "<pre>";print_r($data);die;
-        $proArr = explode("-",$data['idSize']);
-        $proAttr = ProductsAttribute::where(['product_id' => $proArr[0], 'size' => $proArr[1]])->first();
+        echo "<pre>";print_r($data);die;
+        $proArr = explode("-");
+        //$proAttr = ProductsAttribute::where(['product_id' => $proArr[0])->first();
         echo $proAttr->price;
         echo "#";
-        echo $proAttr->stock;
+        //echo $proAttr->stock;
 
     }
     public function addtocart(Request $request){
         Session::forget('CouponAmount');
         Session::forget('CouponCode');
         $data = $request->all();
-        //echo "<pre>";print_r($data);
+        echo "<pre>";print_r($data);
         if(empty(Auth::user()->email)){
             $data['user_email'] = '';
         }else{
@@ -380,23 +416,23 @@ class ProductsController extends Controller
             $session_id = str_random(40);
             Session::put('session_id',$session_id);
         }
-        if(empty($data['size'])){
-            return redirect()->back()->with('flash_message_error','Please Provide Your Size ');
-        }
-        $sizeArr = explode("-",$data['size']);
-        $countProducts =DB::table('cart')->where(['product_id'=>$data['product_id'],
-        'product_color'=>$data['product_color'],'size'=>$sizeArr[1],'session_id'=>$session_id])->count();
+       $countProducts =DB::table('cart')->where(['product_id'=>$data['product_id'],
+        'session_id'=>$session_id])->count();
         if($countProducts>0){
-          return redirect()->back()->with('flash_message_error','Product already exists in Cart!!');
+          return redirect()->back()->with('flash_message_error','Sản phẩm đã có trong giỏ hàng!');
         }else{
-            $getSKU = ProductsAttribute::select('sku')->where(['product_id'=>$data['product_id'],
-            'size'=>$sizeArr[1]])->first();
-        DB::table('cart')->insert(['product_id'=>$data['product_id'],'product_name'=>$data['product_name'],
-        'product_code'=>$getSKU->sku,'product_color'=>$data['product_color'],'price'=>$data['price'],
-        'size'=>$sizeArr[1],'quantity'=>$data['quantity'],'user_email'=>$data['user_email'],'session_id'=>$session_id]);
+            $getSKU = ProductsAttribute::select('sku')->where(['product_id'=>$data['product_id']])->first();
+        DB::table('cart')->insert(
+            ['product_id'=>$data['product_id'],
+            'product_name'=>$data['product_name'],
+            'product_code'=>$getSKU->sku,
+            'new_price'=>$data['new_price'],
+            'quantity'=>$data['quantity'],
+            'user_email'=>$data['user_email'],
+            'session_id'=>$session_id]);
         }
 
-        return redirect('cart')->with('flash_message_success','Product has been added into Cart!!!');
+        return redirect('cart')->with('flash_message_success','Đã thêm sản phẩm vào giỏ hàng của bạn!');
     }
     public function cart(){
         if(Auth::check()){
@@ -418,7 +454,7 @@ class ProductsController extends Controller
         Session::forget('CouponAmount');
         Session::forget('CouponCode');
         DB::table('cart')->where('id',$id)->delete();
-        return redirect('cart')->with('flash_message_error','Product has been deleted from Cart');
+        return redirect('cart')->with('flash_message_error','Đã xóa sản phẩm khỏi giỏ hàng');
     
     }
     public function updateCartQuantity($id=null,$quantity=null){
@@ -429,9 +465,9 @@ class ProductsController extends Controller
         $updated_quantity = $getCartSetails->quantity+$quantity;
         if($getAttributeStock->stock >= $updated_quantity){
         DB::table('cart')->where('id',$id)->increment('quantity',$quantity);
-        return redirect('cart')->with('flash_message_success','Product Quantity has been Updated Successfully!!');
+        return redirect('cart')->with('flash_message_success','Cập nhật số lượng sản phẩm thành công!');
         }else{
-        return redirect('cart')->with('flash_message_error','Required Product Quantity is not Available');  
+        return redirect('cart')->with('flash_message_error','Kiểm tra số lượng sản phẩm!');  
         }
     }
     public function ApplyCoupon(Request $request){
@@ -441,7 +477,7 @@ class ProductsController extends Controller
        // echo"<pre>";print_r($data);die;
        $couponCount = Coupon::where('coupon_code',$data['coupon_code'])->count();
        if($couponCount == 0){
-           return redirect()->back()->with('flash_message_error','Coupon does not Exists!');
+           return redirect()->back()->with('flash_message_error','Mã khuyến mãi không tồn tại!');
        }else{
            //perform other actions like active,inactive or expiry date
 
@@ -449,13 +485,13 @@ class ProductsController extends Controller
            $couponDetails = Coupon::where('coupon_code',$data['coupon_code'])->first();
            //if coupon is valid
            if($couponDetails->status== 0){
-             return redirect()->back()->with('flash_message_error','This Coupon is not active!');
+             return redirect()->back()->with('flash_message_error','Mã khuyến mãi này đã hết hạn. Xin hãy xem lại!');
            }
            //if coupon is expired
            $expiry_date = $couponDetails->expiry_date;
            $current_date = date('Y-m-d');
         if($expiry_date < $current_date){
-            return redirect()->back()->with('flash_message_error','This Coupon is Expired!');
+            return redirect()->back()->with('flash_message_error','Mã khuyến mãi hết hạn!');
         }
            //Coupon is valid for Discount
            //Get Cart total amount
@@ -469,7 +505,7 @@ class ProductsController extends Controller
             }
            $total_amount = 0;
            foreach($userCart as $item){
-            $total_amount = $total_amount + ($item->price * $item->quantity);
+            $total_amount = $total_amount + ($item->new_price * $item->quantity);
         }
            //Check if amount type is fixed or percentage
            if($couponDetails->amount_type=="Fixed"){
@@ -480,8 +516,7 @@ class ProductsController extends Controller
             //Add coupon Code & Amount in session
             Session::put('CouponAmount',$couponAmount);
             Session::put('CouponCode',$data['coupon_code']);
-            return redirect()->back()->with('flash_message_success','Coupon Code is successfully
-            applied.You are availing discount!');
+            return redirect()->back()->with('flash_message_success','');
        }
     }
     public function checkout(Request $request){
@@ -511,8 +546,7 @@ class ProductsController extends Controller
         ||empty($data['shipping_address']) ||empty($data['shipping_city'])
         ||empty($data['shipping_state']) ||empty($data['shipping_country'])
         ||empty($data['shipping_pincode']) ||empty($data['shipping_mobile'])){
-          return redirect()->back()->with('flash_message_error','Please Fill all 
-          Fields to Continue!!');
+          return redirect()->back()->with('flash_message_error','Nhập đủ thông tin các dòng để tiếp tục!');
         }
         //Update User Details
         User::where('id',$user_id)->update(['name'=>$data['billing_name'],'address'=>$data['billing_address'],
@@ -522,8 +556,8 @@ class ProductsController extends Controller
         if($shippingCount>0){
           //Update Shipping Address
           DeliveryAddress::where('user_id',$user_id)->update(['name'=>$data['shipping_name'],'address'=>$data['shipping_address'],
-          'city'=>$data['shipping_city'],'state'=>$data['shipping_state'],'pincode'=>$data['shipping_pincode'],
-          'country'=>$data['shipping_country'],'mobile'=>$data['shipping_mobile']]);
+          'city'=>$data['shipping_city'],'state'=>$data['shipping_state'],
+          'country'=>$data['shipping_country'],'pincode'=>$data['shipping_pincode'],'mobile'=>$data['shipping_mobile']]);
         }else{
           //New Shipping Address
           $shipping = new DeliveryAddress;
@@ -533,8 +567,8 @@ class ProductsController extends Controller
           $shipping->address = $data['shipping_address'];
           $shipping->city = $data['shipping_city'];
           $shipping->state = $data['shipping_state'];
-          $shipping->pincode = $data['shipping_pincode'];
           $shipping->country = $data['shipping_country'];
+          $shipping->pincode = $data['shipping_pincode'];
           $shipping->mobile = $data['shipping_mobile'];
           $shipping->save();
         }
@@ -605,9 +639,7 @@ class ProductsController extends Controller
                 $cartPro->product_id = $pro->product_id;
                 $cartPro->product_code = $pro->product_code;
                 $cartPro->product_name = $pro->product_name;
-                $cartPro->product_color = $pro->product_color;
-                $cartPro->product_size = $pro->size;
-                $cartPro->product_price = $pro->price;
+                $cartPro->product_new_price = $pro->new_price;
                 $cartPro->product_qty = $pro->quantity;
                 $cartPro->save();
             }
@@ -671,6 +703,6 @@ class ProductsController extends Controller
             $data = $request->all();
         }
         Order::where('id',$data['order_id'])->update(['order_status'=>$data['order_status']]);
-        return redirect()->back()->with('flash_message_success','Order Status has been Updated Successfully!');
+        return redirect()->back()->with('flash_message_success','Cập nhật trạng thái đơn hàng thành công!');
     }
 }

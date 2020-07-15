@@ -1,0 +1,22 @@
+.item-details {
+    margin-right: 20%;
+}
+.productinfo img {
+    width: 100%;
+    height: 185px;
+}
+.card-content {
+    height: 140px;
+}
+.cart_price p {
+    float: right;
+}
+.cart_total p {
+    float: right;
+}
+.total {
+    float: right;
+}
+.header-bottom .mainmenu {
+    position: relative;
+}

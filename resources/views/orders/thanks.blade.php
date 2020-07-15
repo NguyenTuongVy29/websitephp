@@ -5,8 +5,7 @@
 <div class="container">
 <div class="breadcrumbs">
 <ol class="breadcrumb">
-<li><a href="#">Home</a></li>
-<li class="active">Thanks</li>
+<li class="active">Cảm ơn bạn đã đặt hàng</li>
 </ol>
 </div>
 </div>
@@ -15,8 +14,8 @@
 <section id="do_action">
 <div class="container">
 <div class="heading" align="center">
-<h3>YOUR COD ORDER HAS BEEN PLACED </h3>
-<p>Your order number is {{Session::get('order_id')}} and total payable about is PKR {{Session::get('grand_total')}}</p>
+<h3>Đơn hàng của bạn đã đặt thành công </h3>
+<p>Mã đơn hàng của bạn là {{Session::get('order_id')}} và Tổng tiền phải thanh toán là  {{Session::get('grand_total')}} VNĐ</p>
 </div>
 
 </div>

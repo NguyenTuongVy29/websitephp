@@ -21,7 +21,7 @@ class AdminController extends Controller
            return redirect('admin/dashboard');
          }else{
            //echo "Failed"; die;
-           return redirect('/admin')->with('flash_message_error','Invalid Username or Password');
+           return redirect('/admin')->with('flash_message_error','Tên đăng nhập hoặc mật khẩu không đúng!');
          }
       }
       return view('admin.admin_login');
@@ -32,11 +32,11 @@ class AdminController extends Controller
       $productsAll = Product::paginate();
       $couponCount = Coupon::paginate();
       $categoryCount = Category::paginate();
-      /*if(Session::has('adminSession')){
+      if(Session::has('adminSession')){
         //perform all dashboard taks
       }else{
-        return redirect('/admin')->with('flash_message_error','Please login to Success');
-      }*/
+        return redirect('/admin')->with('flash_message_error','Đăng nhập thành công!');
+      }
       return view('admin.dashboard')->with(compact('userCount','orderCount','productsAll','couponCount','categoryCount'));
     }
     public function settings(){
@@ -55,6 +55,6 @@ class AdminController extends Controller
     
     public function logout(){
       Session::flush();
-      return redirect('/admin')->with('flash_message_success','Logged Out Successfully!!!');
+      return redirect('/admin')->with('flash_message_success','Đăng xuất thành công!');
     }
 }

@@ -5,23 +5,23 @@
 <div class="bg">
 <div class="row">    		
 <div class="col-sm-8">    			   			
-<h2 class="title text-center">Contact <strong>Us</strong></h2> 
+<h2 class="title text-center">Liên hệ <strong>Với chúng tôi</strong></h2> 
 <div class="status alert alert-success" style="display: none"></div>
 <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
 <div class="form-group col-md-6">
-    <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+    <input type="text" name="name" class="form-control" required="required" placeholder="Họ và tên">
 </div>
 <div class="form-group col-md-6">
     <input type="email" name="email" class="form-control" required="required" placeholder="Email">
 </div>
 <div class="form-group col-md-12">
-    <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
+    <input type="text" name="subject" class="form-control" required="required" placeholder="Chủ đề">
 </div>
 <div class="form-group col-md-12">
-    <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
+    <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Nội dung tin nhắn của ban"></textarea>
 </div>                        
 <div class="form-group col-md-12">
-    <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
+    <input type="submit" name="submit" class="btn btn-primary pull-right" value="Gửi">
 </div>
 </form>   			    				    				
 <div id="gmap" class="contact-map">
@@ -29,17 +29,17 @@
 </div>
 <div class="col-sm-4">
 <div class="contact-info">
-<h2 class="title text-center">Contact Info</h2>
+<h2 class="title text-center">Thông tin liên hệ</h2>
 <address>
-    <p>Hyper-Mart Inc.</p>
-    <p>Bahauddin Zakariya University</p>
-    <p>Pakistan, Lahore</p>
-    <p>Mobile: +92303-0961254</p>
-    <p>Fax: 1-714-252-0026</p>
-    <p>Email: amaanchaudhary17@gmail.com</p>
+    <p>Laptop Shop</p>
+    <p>Trường Đại học Tài chính - Marketing</p>
+    <p>Thành phố Hồ Chí Minh</p>
+    <p>Phone: 0123456789</p>
+    <p>Fax: 123456789</p>
+    <p>Email: vynguyenmy81@gmail.com</p>
 </address>
 <div class="social-networks">
-    <h2 class="title text-center">Social Networking</h2>
+    <h2 class="title text-center">Thông tin khác</h2>
     <ul>
         <li>
             <a href="#"><i class="fa fa-facebook"></i></a>

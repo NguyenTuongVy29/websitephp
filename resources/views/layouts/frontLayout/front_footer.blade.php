@@ -8,19 +8,20 @@
                         <p>The Laptop Shop chuyên cung cấp các sản phẩm công nghệ hiện đại, máy tính sành điệu, phù hợp với mọi tính chất công việc</p>
                     </div>
                 </div>
+
+                
                 <div class="col-sm-7">
                     <div class="col-sm-3">
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{asset('images/frontend_img/home/iframe1.png')}}" alt="" />
+                                    <img src="{{asset('images/frontend_img/home/vc.png')}}" alt="" />
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
                                 </div>
                             </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <h2>Miễn phí vận chuyển</h2>
                         </div>
                     </div>
                     
@@ -28,14 +29,13 @@
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{asset('images/frontend_img/home/iframe2.png')}}" alt="" />
+                                    <img src="{{asset('images/frontend_img/home/tuvan.png')}}" alt="" />
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
                                 </div>
                             </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <h2>Hỗ trợ trực tuyến</h2>
                         </div>
                     </div>
                     
@@ -43,14 +43,13 @@
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{asset('images/frontend_img/home/iframe3.png')}}" alt="" />
+                                    <img src="{{asset('images/frontend_img/home/hanoi.jpg')}}" alt="" />
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
                                 </div>
                             </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <h2>Chi nhánh Hà Nội</h2>
                         </div>
                     </div>
                     
@@ -58,14 +57,13 @@
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{asset('images/frontend_img/home/iframe4.png')}}" alt="" />
+                                    <img src="{{asset('images/frontend_img/home/hcm.jpg')}}" alt="" />
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
                                 </div>
                             </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
+                            <h2>Chi nhánh TP Hồ Chí Minh</h2>
                         </div>
                     </div>
                 </div>

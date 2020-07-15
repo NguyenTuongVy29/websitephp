@@ -65,35 +65,49 @@
  @include('layouts.FrontLayout.front_sidebar')
 </div>
 
+<style>
+    .card-content h6 {
+        text-decoration: line-through;
+    }
+</style>
+
 <div class="col-sm-9 padding-right">
     <div class="features_items"><!--features_items-->
     <h2 class="title text-center">{{$categoryDetails->Name}}</h2>
         @foreach($productsAll as $product)
-        <div class="col-sm-4">
-            <div class="product-image-wrapper">
-                <div class="single-products">
-                        <div class="productinfo text-center">
-                            <img src="{{asset('images/backend_img/products/small/'.$product->image)}}" alt="" />
-                        <h2>PKR {{$product->price}}</h2>
-                        <p>{{$product->product_name}}</p>
-                        <a href="{{url ('product/'.$product->id)}}" class="btn btn-default add-to-cart">Detail Page</a>
+        <div class="col-sm-3">
+         <div class="product-image-wrapper">
+         <div class="single-products" style="height: 350px">
+          <div class="card row"> 
+              <div class="col-md-12">
+                <div class="productinfo text-center " style>
+                    <div class="card-header">
+                        <a href="{{url('product/'.$product->id)}}"> <img src="{{asset('images/backend_img/products/small/'.$product->image)}}" class="image" alt=""/> </a>
+                    </div>
+                    <div class="card-content">
+                        <h6>{{number_format($product->old_price, 0)}} VNĐ</h6>
+                        <h5>{{number_format($product->new_price, 0)}} VNĐ</h5>
+                        
+                        <a href="{{url('product/'.$product->id)}}"><p>{{$product->product_name}}</p></a> 
+                    </div>                         
+                 <div class="separator clear-left d-flex align-items-end"> 
+                      <div class="card-footer">
+                        <div class="row">
+                        <p class="btn-add">
+                        <i class="fa fa-list"></i>
+                        <a href="{{url('product/'.$product->id)}}" class="item-details">Chi tiết</a>
+                        <i class="fa fa-shopping-cart"></i>
+                        <a href="{{url('product/'.$product->id)}}">Đặt hàng</a>
+                        </p> 
                         </div>
-                        <!--<div class="product-overlay">
-                            <div class="overlay-content">
-                                <h2>PKR {{$product->price}}</h2>
-                                <p>{{$product->product_name}}</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                            </div>
-                        </div>-->
+                 </div>
                 </div>
-                <div class="choose">
-                    <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                    </ul>
-                </div>
-            </div>
+              </div> 
+          </div> 
         </div>
+        </div>
+    </div>
+</div>
         @endforeach
         
     </div><!--features_items-->

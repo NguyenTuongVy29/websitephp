@@ -18,8 +18,7 @@ class CategoryController extends Controller
            $category->Parent_id = $data['Parent_id'];
            $category->description = $data['description'];
            $category->url = $data['url'];
-           $category->save();
-           return redirect('/admin/view-categories')->with('flash_message_success','Category Added Successfully!!!');
+           return redirect('/admin/view-categories')->with('flash_message_success','Thêm danh mục thành công!');
         }
         //code for adding sub categories of parent category
         $levels = Category::where(['Parent_id'=>0])->get();
@@ -36,17 +35,18 @@ class CategoryController extends Controller
         if($request->isMethod('post')){
             $data = $request->all();
             Category::where(['id'=>$id])->update(['name'=>$data['category_name'],'description'=>$data['description'],'url'=>$data['url']]);
-            return redirect('/admin/view-categories')->with('flash_message_success','Category Updated Successfully!!!');
+            return redirect('/admin/view-categories')->with('flash_message_success','Cập nhật danh mục thành công!');
         }
         $categoryDetails = Category::where(['id'=>$id])->first();
         $levels = Category::where(['Parent_id'=>0])->get();
-        return view('admin.categories.edit_category')->with(compact('categoryDetails','levels'));
+        return view('admin.categories.edit_category')->with(compact('categoryDetails', 'levels'));
     }
+
     //function for delete category
     public function deleteCategory($id=null){
             if(!empty($id)){
                 Category::where(['id'=>$id])->delete();
-                return redirect()->back()->with('flash_message_error','Category deleted Successfully!!!');
+                return redirect()->back()->with('flash_message_error','Xóa danh mục thành công!');
 
             }
     }

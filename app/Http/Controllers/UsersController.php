@@ -26,7 +26,7 @@ class UsersController extends Controller
                 }
                 return redirect('/cart');
             }else{
-                return redirect()->back()->with('flash_message_error','Invalid username & password');
+                return redirect()->back()->with('flash_message_error','Tên đăng nhập hoặc mật khẩu không đúng!');
             }
         }
 
@@ -38,7 +38,7 @@ class UsersController extends Controller
             //Check if user already exists 
             $userCount = User::where('email',$data['email'])->count();
             if($userCount>0){
-                return redirect()->back()->with('flash_message_error','Email already exists!');
+                return redirect()->back()->with('flash_message_error','Tên đăng nhập không tồn tại!');
             }else{
                 //adding users in table
                 $user =new User;
@@ -75,7 +75,7 @@ class UsersController extends Controller
         if($request->isMethod('post')){
             $data = $request->all();
             if(empty($data['country'])){
-                return redirect()->back()->with('flash_message_error','Please Enter your Country ');
+                return redirect()->back()->with('flash_message_error','Vui lòng chọn Tỉnh/ TP! ');
             }
             $user = User::find($user_id);
             $user->email = $data['email'];
@@ -87,7 +87,7 @@ class UsersController extends Controller
             $user->pincode = $data['pincode'];
             $user->mobile = $data['mobile'];
             $user->save();
-            return redirect()->back()->with('flash_message_success','Your Account Detail has been Successfully Updated!!');
+            return redirect()->back()->with('flash_message_success','Cập nhật tài khoản thành công!');
 
         }
         return view('users.account')->with(compact('countries','userDetails'));
@@ -115,9 +115,9 @@ class UsersController extends Controller
                 //update password
             $new_pwd = bcrypt($data['new_pwd']);
             User::where('id',Auth::User()->id)->update(['password'=>$new_pwd]);
-            return redirect()->back()->with('flash_message_success','Password is updated Successfully!!');
+            return redirect()->back()->with('flash_message_success','Đổi mật khẩu thành công!');
             }else{
-                return redirect()->back()->with('flash_message_error','Current Password is incorrect!');
+                return redirect()->back()->with('flash_message_error','Mật khẩu hiện tại không đúng!');
             }
         }
     }
